@@ -13,20 +13,20 @@ import {
 import axios from 'axios';
 axios.defaults.baseURL = 'https://api.thecatapi.com/v1/';
 axios.defaults.headers.common['x-api-key'] =
-  'f2899b7f-b575-4378-8ba4-7a4a9b1cabe0';
+    'f2899b7f-b575-4378-8ba4-7a4a9b1cabe0';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-const deleteImageFromFavourites = async (favouritesId,loadFavorites) => {
-//  console.log(favouritesId);
-  const url = `favourites/${favouritesId}`;
-  try {
-    const response = await axios.delete(url);
-  //  console.log('response', response);
-    loadFavorites(); 
-  } catch (error) {
-  //  console.log(error);
-  } 
+const deleteImageFromFavourites = async (favouritesId, loadFavorites) => {
+    //  console.log(favouritesId);
+    const url = `favourites/${favouritesId}`;
+    try {
+        const response = await axios.delete(url);
+        //  console.log('response', response);
+    } catch (error) {
+        console.log(error);
+    } finally { loadFavorites(); }
+
 };
 
 function ClientItem({ favorite,loadFavorites}) {

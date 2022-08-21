@@ -40,14 +40,14 @@ export default function Profile({route}) {
   const loadImage = async () => {
     const url = item?.url;
       try {
-      const response = await axios.get(url);
+     const response = await axios.get(url);
        setImage(item);
       } catch (error) {
         console.log(error);
       }
     };
-
-  useEffect(() => {
+    
+    useEffect(() => {
     loadImage();
     loadRandomImage();
   }, []);
